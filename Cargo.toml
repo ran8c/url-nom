@@ -1,7 +1,21 @@
 [package]
 name = "url-nom"
 version = "0.1.0"
+authors = ["ran8c <ran8c@outlook.com>"]
 edition = "2021"
+description = "A URL parsing library"
+repository = "https://github.com/ran8c/url-nom"
+license = "MIT"
+keywords = ["parser", "parsing", "url"]
+categories = ["network-programming", "parser-implementations"]
+publish = false
 
 [dependencies]
-nom = "7.1.3"
+nom = "7.1.*"
+
+[lints.rust]
+unsafe_code = "deny"
+deprecated_safe_2024 = "deny"
+
+[lints.clippy]
+enum_glob_use = "deny"
