@@ -16,7 +16,24 @@
 // TODO: add documentation
 
 pub enum UrlSearchError {}
-pub enum UrlError {}
+pub enum UrlParseError {}
+
+pub enum UrlError {
+    Search(UrlSearchError),
+    Parse(UrlParseError),
+}
+
+impl From<UrlSearchError> for UrlError {
+    fn from(err: UrlSearchError) -> Self {
+        UrlError::Search(err)
+    }
+}
+
+impl From<UrlParseError> for UrlError {
+    fn from(err: UrlParseError) -> Self {
+        UrlError::Parse(err)
+    }
+}
 
 // https://url.spec.whatwg.org/#api
 
@@ -85,15 +102,15 @@ pub struct Url {
 }
 
 impl Url {
-    fn url_parser(url: &str, base: Option<&str>) -> Result<Self, UrlError> {
+    fn url_parser(url: &str, base: Option<&str>) -> Result<Self, UrlParseError> {
         Ok(todo!())
     }
 
-    pub fn new(url: &str, base: Option<&str>) -> Result<Self, UrlError> {
+    pub fn new(url: &str, base: Option<&str>) -> Result<Self, UrlParseError> {
         Self::url_parser(url, base)
     }
 
-    pub fn parse(url: &str, base: Option<&str>) -> Result<Self, UrlError> {
+    pub fn parse(url: &str, base: Option<&str>) -> Result<Self, UrlParseError> {
         Self::url_parser(url, base)
     }
 
