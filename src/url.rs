@@ -1,5 +1,7 @@
 // TODO: add documentation
 
+use crate::url_search::UrlSearchParams;
+
 pub enum UrlParseError {}
 
 // https://url.spec.whatwg.org/#url-class
@@ -49,7 +51,7 @@ impl Url {
     // }
 
     // TODO: add search param structure
-    // pub fn search_params() -> UrlSearchParams {
-    //     todo!()
-    // }
+    pub fn search_params() -> UrlSearchParams {
+        todo!()
+    }
 }
